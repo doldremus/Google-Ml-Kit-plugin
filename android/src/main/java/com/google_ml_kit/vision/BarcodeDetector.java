@@ -57,10 +57,12 @@ public class BarcodeDetector implements ApiDetectorInterface {
     }
 
     private void handleDetection(MethodCall call, final MethodChannel.Result result) {
+        @SuppressWarnings("unchecked")
         Map<String, Object> imageData = (Map<String, Object>) call.argument("imageData");
         InputImage inputImage = InputImageConverter.getInputImageFromData(imageData, context, result);
         if (inputImage == null) return;
 
+        @SuppressWarnings("unchecked")
         List<Integer> formatList = (List<Integer>) call.argument("formats");
         if (formatList == null)  {
             result.error("BarcodeDetectorError", "Invalid barcode formats", null);

@@ -15,8 +15,9 @@ public class GoogleMlKitPlugin implements FlutterPlugin {
     /// This local reference serves to register the plugin with the Flutter Engine and unregister it
     /// when the Flutter Engine is detached from the Activity
     private MethodChannel channel;
-    private static String channelName = "google_ml_kit";
+    private static final String channelName = "google_ml_kit";
 
+    @SuppressWarnings("deprecation")
     public static void registerWith(Registrar registrar) {
         final MethodChannel channel = new MethodChannel(registrar.messenger(), channelName);
         channel.setMethodCallHandler(new MlKitMethodCallHandler(registrar.context()));

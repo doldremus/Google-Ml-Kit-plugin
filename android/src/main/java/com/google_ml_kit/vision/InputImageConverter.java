@@ -32,6 +32,7 @@ public class InputImageConverter {
                 return null;
             }
         } else if (model.equals("bytes")) {
+            @SuppressWarnings("unchecked")
             Map<String, Object> metaData = (Map<String, Object>) imageData.get("metadata");
             inputImage = InputImage.fromByteArray((byte[]) imageData.get("bytes"),
                     (int) (double) metaData.get("width"),
